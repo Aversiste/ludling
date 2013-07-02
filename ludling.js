@@ -19,7 +19,7 @@ var v = ['a', 'e', 'i', 'o', 'u', 'y'];
 String.prototype.toLatinPig = function () {
 	var vs = ["way", "yay", "hay"];
 
-	var a = this.split(' ');
+	var a = this.split(/ /g);
 
 	for (i in a) {
 		var s = a[i].toLowerCase();
@@ -37,7 +37,7 @@ String.prototype.toLatinPig = function () {
 }
 
 String.prototype.toUbbiDubbi = function () {
-	var a = this.split(' ');
+	var a = this.split(/ /g);
 
 	for (i in a) {
 		var s = a[i].toLowerCase();
