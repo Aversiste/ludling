@@ -21,7 +21,7 @@ String.prototype.toLatinPig = function () {
 
 	var a = this.split(/ /g);
 
-	for (i in a) {
+	for (var i = 0; i < a.length; ++i) {
 		var s = a[i].toLowerCase();
 		var t = "";
 
@@ -39,11 +39,11 @@ String.prototype.toLatinPig = function () {
 String.prototype.toUbbiDubbi = function () {
 	var a = this.split(/ /g);
 
-	for (i in a) {
+	for (var i in a) {
 		var s = a[i].toLowerCase();
 		var t = "";
 
-		for (j = 0; j < s.length; ++j) {
+		for (var j = 0; j < s.length; ++j) {
 			if (v.indexOf(s[j]) >= 0) {
 				t += "ub" + s[j];
 			} else {
