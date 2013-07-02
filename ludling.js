@@ -39,7 +39,7 @@ String.prototype.toLatinPig = function () {
 String.prototype.toUbbiDubbi = function () {
 	var a = this.split(/ /g);
 
-	for (var i in a) {
+	for (var i = 0; i < a.length; ++i) {
 		var s = a[i].toLowerCase();
 		var t = "";
 
@@ -58,3 +58,26 @@ String.prototype.toUbbiDubbi = function () {
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
+String.prototype.toGibberish = function () {
+	var a = this.split(/ /g);
+	var vi = ["idig", "uddag", "uvug", "uthug"];
+	var rvi = vi[Math.floor(Math.random() * vi.length)];
+
+	for (var i = 0; i < a.length; ++i) {
+		var s = a[i].toLowerCase();
+		var t = "";
+
+		for (var j = 0; j < s.length; ++j) {
+			if (v.indexOf(s[j]) >= 0) {
+				t += rvi + s[j];
+			} else {
+				t += s[j];
+			}
+		}
+
+		a[i] = t;
+	}
+	
+	var r = a.join(' ');
+	return r.charAt(0).toUpperCase() + r.slice(1);
+}
