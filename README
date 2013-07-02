@@ -1,0 +1,6 @@
+Ludling
+=======
+
+There is currently two ludlings implemented: Latin Pig and Ubbi Dubbi.
+
+You can use them like this: `"Bite".toUbbiDubbi()`.
