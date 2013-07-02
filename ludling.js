@@ -41,7 +41,7 @@ String.prototype.toUbbiDubbi = function () {
 
 	for (i in a) {
 		var s = a[i].toLowerCase();
-		var t;
+		var t = "";
 
 		for (j = 0; j < s.length; ++j) {
 			if (v.indexOf(s[j]) >= 0) {
