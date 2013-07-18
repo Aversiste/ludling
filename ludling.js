@@ -81,3 +81,39 @@ String.prototype.toGibberish = function () {
 	var r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
+
+String.prototype.toTutnese = function () {
+	var a = this.split(/ /g);
+    var c = {'b': 'bub' , 'k': 'kuck' , 's': 'sus' ,
+             'c': 'coch', 'l': 'lul'  , 't': 'tut' ,
+             'd': 'dud' , 'm': 'mum'  , 'v': 'vuv' ,
+             'f': 'fuf' , 'n': 'now'  , 'w': 'wack',
+             'g': 'gug' , 'p': 'pup'  , 'x': 'xux' ,
+             'h': 'hash', 'q': 'quack', 'y': 'yub' ,
+             'j': 'jay' , 'r': 'rur'  , 'z': 'zub' ,
+             '.': 'per' , '?': 'que'  , ',': 'com' ,
+             '!': 'ex'  , ';': 'sem'  , ':': 'col' ,};
+
+	for (var i = 0; i < a.length; ++i) {
+		var s = a[i].toLowerCase();
+        var t = "";
+
+		for (var j = 0; j < s.length; ++j) {
+            if (s[j] === s[j+1]) {
+                t += 'squa';
+                if (v.indexOf(s[j+1]) >= 0) {
+                    t += 't'
+                }
+            } else if (s[j] in c) {
+			    t += c[s[j]];
+			} else {
+                t += s[j];
+			}
+		}
+
+		a[i] = t;
+	}
+
+	var r = a.join(' ');
+	return r.charAt(0).toUpperCase() + r.slice(1);
+}
