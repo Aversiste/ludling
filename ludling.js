@@ -82,6 +82,7 @@ String.prototype.toGibberish = function () {
 
 String.prototype.toTutnese = function () {
 	var a = this.split(/ /g);
+	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
 	var c = {
 		'b': 'bub' , 'k': 'kuck' , 's': 'sus' ,
 		'c': 'coch', 'l': 'lul'  , 't': 'tut' ,
