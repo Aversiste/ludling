@@ -14,12 +14,10 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-var v = ['a', 'e', 'i', 'o', 'u', 'y'];
-
 String.prototype.toLatinPig = function () {
-	var vs = ["way", "yay", "hay"];
-
 	var a = this.split(/ /g);
+	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
+	var vs = ["way", "yay", "hay"];
 
 	for (var i = 0; i < a.length; ++i) {
 		var s = a[i].toLowerCase();
@@ -38,6 +36,7 @@ String.prototype.toLatinPig = function () {
 
 String.prototype.toUbbiDubbi = function () {
 	var a = this.split(/ /g);
+	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
 
 	for (var i = 0; i < a.length; ++i) {
 		var s = a[i].toLowerCase();
@@ -50,7 +49,6 @@ String.prototype.toUbbiDubbi = function () {
 				t += s[j];
 			}
 		}
-		
 		a[i] = t;
 	}
 
@@ -60,6 +58,7 @@ String.prototype.toUbbiDubbi = function () {
 
 String.prototype.toGibberish = function () {
 	var a = this.split(/ /g);
+	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
 	var vi = ["idig", "uddag", "uvug", "uthug"];
 	var rvi = vi[Math.floor(Math.random() * vi.length)];
 
@@ -74,7 +73,6 @@ String.prototype.toGibberish = function () {
 				t += s[j];
 			}
 		}
-
 		a[i] = t;
 	}
 	
@@ -118,3 +116,4 @@ String.prototype.toTutnese = function () {
 	var r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
+
