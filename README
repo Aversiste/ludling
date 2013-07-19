@@ -1,6 +1,21 @@
 Ludling
 =======
 
-There is currently two ludlings implemented: Latin Pig and Ubbi Dubbi.
+There is currently three ludlings implemented:
 
-You can use them like this: `"Bite".toUbbiDubbi()`.
+   * Latin Pig
+   * Ubbi Dubbi
+   * Tutnese (Contributed by @Swizz540)
+
+They are a set of functions that extend the String object through prototyping.
+
+You can use them like this:
+
+    $ "The quick brown fox jumps over the lazy dog".toLatinPig()
+    "Hetay uickqay rownbay oxfay umpsjay overyay hetay azylay ogday"
+    $ "The quick brown fox jumps over the lazy dog".toUbbiDubbi()
+    "Thube qubuubick brubown fubox jubumps ubovuber thube lubazuby dubog"
+    $ "The quick brown fox jumps over the lazy dog".toTutnese()
+    "Tuthashe quackuicochkuck bubrurowacknow fufoxux jayumumpupsus ovuverur
+    tuthashe lulazubyub dudogug"
+
