@@ -14,29 +14,49 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+function isAlpha(ch) {
+	"use strict";
+	var code = ch.charCodeAt(0);
+
+	if ((code >= 65 && code <= 90) || (code >= 97 && code <= 123)) {
+		return true;
+	}
+	return false;
+}
+
 String.prototype.toLatinPig = function () {
 	"use strict";
-	var i, vowels, word, words;
+	var buf, ch, i, pigout, word, vowels;
 
-	words = this.split(/ /g);
-	vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
-
-	for (i = 0; i < words.length; ++i) {
-		word = words[i];
+	buf = word = '';
+	vowels = ['a','e','i','o','u','y','A','E','I','O','U','Y'];
+	pigout = function (word) {
+		var j;
 
 		if (vowels.indexOf(word[0]) >= 0) {
-			word = word + "way";
-		} else {
-			for (var start = 0; start < word.length &&
-			    vowels.indexOf(word[start]) == -1;) {
-				word = word.substring(1) + word.charAt(0);
-			}
-			word = word + "ay";
+			return word + "way";
 		}
-		words[i] = word;
+
+		for (j = 0; j < word.length &&
+		    vowels.indexOf(word[0]) == -1; j = j + 1) {
+			word = word.substring(1) + word.charAt(0);
+		}
+		return word + "ay";
 	}
-	words = words.join(' ');
-	return words.charAt(0) + words.slice(1);
+
+	for (i = 0; i <= this.length; i = i + 1) {
+		ch = this.charAt(i);
+		if (isAlpha(ch)) {
+			buf = buf + ch;
+			continue;
+		}
+		if (buf.length > 0) {
+			word = word + pigout(buf);
+			buf = '';
+		}
+		word = word + ch;
+	}
+	return word;
 }
 
 String.prototype.toUbbiDubbi = function () {
