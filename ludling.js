@@ -37,8 +37,13 @@ String.prototype.toLatinPig = function () {
 			return word + "way";
 		}
 
-		for (j = 0; j < word.length &&
-		    vowels.indexOf(word[0]) == -1; j = j + 1) {
+		for (j = 0; j < word.length && vowels.indexOf(word[0]) == -1;
+		    j = j + 1) {
+			if (word.charAt(0).toLowerCase() === 'q'
+			    && word.charAt(1).toLowerCase() === 'u') {
+				word = word.substring(1) + word.charAt(0);
+				j = j + 1;
+			}
 			word = word.substring(1) + word.charAt(0);
 		}
 		return word + "ay";
