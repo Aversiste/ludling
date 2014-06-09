@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Tristan Le Guern <tleguern AT bouledef DOT eu>
+ * Copyright (c) 2013,2014 Tristan Le Guern <tleguern AT bouledef DOT eu>
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -15,13 +15,15 @@
  */
 
 String.prototype.toLatinPig = function () {
-	var a = this.split(/ /g);
-	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
-	var vs = ["way", "yay", "hay"];
+	"use strict";
+	var a, i, r, s, t, v, vs;
 
-	for (var i = 0; i < a.length; ++i) {
-		var s = a[i].toLowerCase();
-		var t = "";
+	a = this.split(/ /g);
+	v = ['a', 'e', 'i', 'o', 'u', 'y'];
+	vs = ["way", "yay", "hay"];
+
+	for (i = 0; i < a.length; ++i) {
+		s = a[i].toLowerCase();
 
 		if (v.indexOf(s[0]) >= 0) {
 			t = s + vs[Math.floor(Math.random() * vs.length)];
@@ -30,19 +32,21 @@ String.prototype.toLatinPig = function () {
 		}
 		a[i] = t;
 	}
-	var r = a.join(' ');
+	r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
 String.prototype.toUbbiDubbi = function () {
-	var a = this.split(/ /g);
-	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
+	"use strict";
+	var a, i, j, r, s, t, v;
+	a = this.split(/ /g);
+	v = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-	for (var i = 0; i < a.length; ++i) {
-		var s = a[i].toLowerCase();
-		var t = "";
+	for (i = 0; i < a.length; ++i) {
+		s = a[i].toLowerCase();
+		t = "";
 
-		for (var j = 0; j < s.length; ++j) {
+		for (j = 0; j < s.length; ++j) {
 			if (v.indexOf(s[j]) >= 0) {
 				t += "ub" + s[j];
 			} else {
@@ -51,22 +55,22 @@ String.prototype.toUbbiDubbi = function () {
 		}
 		a[i] = t;
 	}
-
-	var r = a.join(' ');
+	r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
 String.prototype.toGibberish = function () {
-	var a = this.split(/ /g);
-	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
-	var vi = ["idig", "uddag", "uvug", "uthug"];
-	var rvi = vi[Math.floor(Math.random() * vi.length)];
+	"use strict";
+	var a, i, j, r, rvi, s, t, v, vi;
+	a = this.split(/ /g);
+	v = ['a', 'e', 'i', 'o', 'u', 'y'];
+	vi = ["idig", "uddag", "uvug", "uthug"];
+	rvi = vi[Math.floor(Math.random() * vi.length)];
 
-	for (var i = 0; i < a.length; ++i) {
-		var s = a[i].toLowerCase();
-		var t = "";
+	for (i = 0; i < a.length; ++i) {
+		s = a[i].toLowerCase();
 
-		for (var j = 0; j < s.length; ++j) {
+		for (j = 0; j < s.length; ++j) {
 			if (v.indexOf(s[j]) >= 0) {
 				t += rvi + s[j];
 			} else {
@@ -75,15 +79,16 @@ String.prototype.toGibberish = function () {
 		}
 		a[i] = t;
 	}
-	
-	var r = a.join(' ');
+	r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
 String.prototype.toTutnese = function () {
-	var a = this.split(/ /g);
-	var v = ['a', 'e', 'i', 'o', 'u', 'y'];
-	var c = {
+	"use strict";
+	var a, c, i, j, r, s, t, v;
+	a = this.split(/ /g);
+	v = ['a', 'e', 'i', 'o', 'u', 'y'];
+	c = {
 		'b': 'bub' , 'k': 'kuck' , 's': 'sus' ,
 		'c': 'coch', 'l': 'lul'  , 't': 'tut' ,
 		'd': 'dud' , 'm': 'mum'  , 'v': 'vuv' ,
@@ -95,11 +100,11 @@ String.prototype.toTutnese = function () {
 		'!': 'ex'  , ';': 'sem'  , ':': 'col' ,
 	};
 
-	for (var i = 0; i < a.length; ++i) {
-		var s = a[i].toLowerCase();
-		var t = "";
+	for (i = 0; i < a.length; ++i) {
+		s = a[i].toLowerCase();
+		t = "";
 
-		for (var j = 0; j < s.length; ++j) {
+		for (j = 0; j < s.length; ++j) {
 			if (s[j] === s[j+1]) {
 				t += 'squa';
 				if (v.indexOf(s[j+1]) >= 0) {
@@ -113,8 +118,7 @@ String.prototype.toTutnese = function () {
 		}
 		a[i] = t;
 	}
-
-	var r = a.join(' ');
+	r = a.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
