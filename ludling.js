@@ -19,10 +19,10 @@ String.prototype.toLatinPig = function () {
 	var i, vowels, word, words;
 
 	words = this.split(/ /g);
-	vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+	vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
 
 	for (i = 0; i < words.length; ++i) {
-		word = words[i].toLowerCase();
+		word = words[i];
 
 		if (vowels.indexOf(word[0]) >= 0) {
 			word = word + "way";
@@ -32,7 +32,7 @@ String.prototype.toLatinPig = function () {
 		words[i] = word;
 	}
 	words = words.join(' ');
-	return words.charAt(0).toUpperCase() + words.slice(1);
+	return words.charAt(0) + words.slice(1);
 }
 
 String.prototype.toUbbiDubbi = function () {
