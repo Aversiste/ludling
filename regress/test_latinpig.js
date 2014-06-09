@@ -12,7 +12,7 @@ var test1 = function () {
 	return targetStr === genStr;
 }
 
-/* Test words beginning with multiple consonants */
+/* Test words beginning with multiple consonants  */
 var test2 = function () {
 	var srcStr, targetStr, genStr;
 
@@ -22,8 +22,18 @@ var test2 = function () {
 	return targetStr === genStr;
 }
 
-/* Test words beginning with a vowel - 'y' is not considered as such */
+/* Test words beginning with 'qu' */
 var test3 = function () {
+	var srcStr, targetStr, genStr;
+
+	srcStr = "quest";
+	targetStr = "estquay";
+	genStr = srcStr.toLatinPig();
+	return targetStr === genStr;
+}
+
+/* Test words beginning with a vowel - 'y' is not considered as such */
+var test4 = function () {
 	var srcStr, targetStr, genStr;
 
 	srcStr = "apple eight omelette under yeast";
@@ -33,7 +43,7 @@ var test3 = function () {
 }
 
 /* Test sentence with punctuation */
-var test4 = function () {
+var test5 = function () {
 	var srcStr, targetStr, genStr;
 
 	srcStr = "Il n'y a pas d'amour heureux.";
@@ -43,7 +53,7 @@ var test4 = function () {
 }
 
 /* Test a limerick */
-var test5 = function () {
+var test6 = function () {
 	var srcStr, targetStr, genStr;
 
 	srcStr = "An architect fellow named Yoric\n"
@@ -61,7 +71,7 @@ var test5 = function () {
 }
 
 /* And test a sentence with capitalized words */
-var test6 = function () {
+var test7 = function () {
 	var srcStr, targetStr, genStr;
 
 	srcStr = "All a hacker needs is a tight PUSHJ, a loose pair of UUOs, "
@@ -79,5 +89,6 @@ test3() || process.exit(3);
 test4() || process.exit(4);
 test5() || process.exit(5);
 test6() || process.exit(6);
+test7() || process.exit(6);
 
 return 0;
