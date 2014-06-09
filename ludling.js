@@ -16,23 +16,22 @@
 
 String.prototype.toLatinPig = function () {
 	"use strict";
-	var a, i, r, s, t, v, vs;
+	var words, i, r, word, t, vowels;
 
-	a = this.split(/ /g);
-	v = ['a', 'e', 'i', 'o', 'u', 'y'];
-	vs = ["way", "yay", "hay"];
+	words = this.split(/ /g);
+	vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
-	for (i = 0; i < a.length; ++i) {
-		s = a[i].toLowerCase();
+	for (i = 0; i < words.length; ++i) {
+		word = words[i].toLowerCase();
 
-		if (v.indexOf(s[0]) >= 0) {
-			t = s + vs[Math.floor(Math.random() * vs.length)];
+		if (vowels.indexOf(word[0]) >= 0) {
+			t = word + "way";
 		} else {
-			t = s.substring(1) + s.charAt(0) + "ay";
+			t = word.substring(1) + word.charAt(0) + "ay";
 		}
-		a[i] = t;
+		words[i] = t;
 	}
-	r = a.join(' ');
+	r = words.join(' ');
 	return r.charAt(0).toUpperCase() + r.slice(1);
 }
 
