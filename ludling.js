@@ -27,7 +27,11 @@ String.prototype.toLatinPig = function () {
 		if (vowels.indexOf(word[0]) >= 0) {
 			word = word + "way";
 		} else {
-			word = word.substring(1) + word.charAt(0) + "ay";
+			for (var start = 0; start < word.length &&
+			    vowels.indexOf(word[start]) == -1;) {
+				word = word.substring(1) + word.charAt(0);
+			}
+			word = word + "ay";
 		}
 		words[i] = word;
 	}
