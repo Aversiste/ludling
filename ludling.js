@@ -29,16 +29,22 @@ String.prototype.toLatinPig = function () {
 	var buf, ch, i, pigout, word, vowels;
 
 	buf = word = '';
-	vowels = ['a','e','i','o','u','y','A','E','I','O','U','Y'];
+	vowels = ['a','e','i','o','u','A','E','I','O','U'];
 	pigout = function (word) {
-		var j;
+		var ch, j;
 
-		if (vowels.indexOf(word[0]) >= 0) {
+		ch = word.charAt(0);
+		if (vowels.indexOf(ch) >= 0) {
 			return word + "way";
 		}
 
-		for (j = 0; j < word.length && vowels.indexOf(word[0]) == -1;
-		    j = j + 1) {
+		for (j = 0; j < word.length; j = j + 1) {
+			ch = word.charAt(0);
+			if (vowels.indexOf(ch) !== -1 || ch === 'y'
+			    || ch === 'Y') {
+				break;
+			}
+
 			if (word.charAt(0).toLowerCase() === 'q'
 			    && word.charAt(1).toLowerCase() === 'u') {
 				word = word.substring(1) + word.charAt(0);
