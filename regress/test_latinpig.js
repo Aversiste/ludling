@@ -61,10 +61,10 @@ var test6 = function () {
 	    + "        Display for selection\n"
 	    + "        Three kinds of erection --\n"
 	    + "Corinthian, ionic, and doric.";
-	targetStr = "Anway architectway ellowfay amednay Yoricay"
-	    + "Ouldcay, enwhay eelingfay euphoricway,"
-	    + "        Isplayday orfay electionsay"
-	    + "        Eethray indskay ofway erectionway --"
+	targetStr = "Anway architectway ellowfay amednay Yoricay\n"
+	    + "Ouldcay, enwhay eelingfay euphoricway,\n"
+	    + "        Isplayday orfay electionsay\n"
+	    + "        Eethray indskay ofway erectionway --\n"
 	    + "Orinthiancay, ionicway, andway oricday.";
 	genStr = srcStr.toLatinPig();
 	return targetStr === genStr;
