@@ -24,6 +24,16 @@ function isAlpha(ch) {
 	return false;
 }
 
+function isUpper(ch) {
+	"use strict";
+	var code = ch.charCodeAt(0);
+
+	if ((code >= 65 && code <= 90)) {
+		return true;
+	}
+	return false;
+}
+
 String.prototype.toLatinPig = function () {
 	"use strict";
 	var buf, ch, i, pigout, word, vowels;
@@ -31,13 +41,23 @@ String.prototype.toLatinPig = function () {
 	buf = word = '';
 	vowels = ['a','e','i','o','u','A','E','I','O','U'];
 	pigout = function (word) {
-		var ch, j;
+		var ch, j, allup, firstup;
+
+		firstup = allup = isUpper(word.charAt(0));
+		if (word === word.toUpperCase()) {
+			allup = true;
+		} else {
+			allup = false;
+		}
 
 		ch = word.charAt(0);
 		if (vowels.indexOf(ch) >= 0) {
-			return word + "way";
+			return word + (allup === true ? "WAY" : "way");
 		}
 
+		if (allup === false) {
+			word = ch.toLowerCase() + word.substring(1);
+		}
 		for (j = 0; j < word.length; j = j + 1) {
 			ch = word.charAt(0);
 			if (vowels.indexOf(ch) !== -1 || ch === 'y'
@@ -52,7 +72,10 @@ String.prototype.toLatinPig = function () {
 			}
 			word = word.substring(1) + word.charAt(0);
 		}
-		return word + "ay";
+		if (firstup === true) {
+			word = word.charAt(0).toUpperCase() + word.substring(1);
+		}
+		return word + (allup === true ? "AY" : "ay");
 	}
 
 	for (i = 0; i <= this.length; i = i + 1) {
